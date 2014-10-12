@@ -2,4 +2,43 @@ login.html
 
 <div ng-controller="login-ctrl">
 
+	<div id="loginUserContainer">
+		<form name="loginUserForm" 
+		novalidate 
+		id="loginUserForm">
+
+			<!-- 
+			<input/>          ATTRIBUTE:
+							  type: If the input should be text or something else.
+					          ng-model: Used as a binding for the object to be accesable from angluar. Here used in button to enable/disable click.
+					          [name]: The name of the object.
+					          [placeholder]: The default-text.
+					          [required]: Add attribute if input should be required.
+			-->
+
+			<input  type="text" 
+					ng-model="loginUserForm.user" 
+					name="loginUserForm.user" 
+					placeholder="User Name"
+					required/>
+
+			<input  type="password" 
+					ng-model="loginUserForm.password" 
+					name: "loginUserForm.password" 
+					placeholder="Password" 
+					required />
+
+			<button id="loginUserButton" 
+					ng-disabled="!(!!loginUserForm.user && !!loginUserForm.password)"
+					ng-click="loginButtonPressed(loginUserForm.user, loginUserForm.password)">
+					Log in
+			</button>
+
+			<button id="createUserButton" 
+				ng-click="createUserButtonPressed()">
+				New User!
+			</button>
+		</form>
+	</div>
 </div>
+

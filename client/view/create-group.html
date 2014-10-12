@@ -1,4 +1,31 @@
 create-group.html
 <div ng-controller="create-group-ctrl">
+<div id="createGroupContainer">
+		<form name="createGroupForm" 
+		novalidate 
+		id="createGroupForm">
+
+			<!-- 
+			<input/>          ATTRIBUTE:
+							  type: If the input should be text or something else.
+					          ng-model: Used as a binding for the object to be accesable from angluar. Here used in button to enable/disable click.
+					          [name]: The name of the object.
+					          [placeholder]: The default-text.
+					          [required]: Add attribute if input should be required.
+			-->
+
+			<input  type="text" 
+					ng-model="createGroupForm.groupName" 
+					name="createGroupForm.groupName" 
+					placeholder="Group Name"
+					required/>
+
+			<button id="createGroupButton" 
+					ng-disabled="!(!!createGroupForm.groupName)"
+					ng-click="createGroupButtonPressed(createGroupForm.groupName)">
+					create group
+			</button>
+		</form>
+	</div>
 
 </div>

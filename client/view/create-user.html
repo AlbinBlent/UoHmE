@@ -1,5 +1,43 @@
 create-user.html
 
 <div ng-controller="create-user-ctrl">
+	<div id="createUserContainer">
+		<form name="createUserForm" 
+		novalidate 
+		id="createUserForm">
 
+			<!-- 
+			<input/>          ATTRIBUTE:
+							  type: If the input should be text or something else.
+					          ng-model: Used as a binding for the object to be accesable from angluar. Here used in button to enable/disable click.
+					          [name]: The name of the object.
+					          [placeholder]: The default-text.
+					          [required]: Add attribute if input should be required.
+			-->
+
+			<input  type="text" 
+					ng-model="createUserForm.user" 
+					name="createUserForm.user" 
+					placeholder="User Name"
+					required/>
+
+			<input  type="password1" 
+					ng-model="createUserForm.password1" 
+					name: "createUserForm.password1" 
+					placeholder="Password" 
+					required />
+
+			<input  type="password2" 
+					ng-model="createUserForm.password2" 
+					name: "createUserForm.password2" 
+					placeholder="Password again..." 
+					required />		
+
+			<button id="createUserButton" 
+					ng-disabled="!(!!createUserForm.user && !!createUserForm.password1 && !!createUserForm.password2)"
+					ng-click="createUserButtonPressed(createUserForm.user, createUserForm.password1, createUserForm.password2)">
+					Register
+			</button>
+		</form>
+	</div>
 </div>
